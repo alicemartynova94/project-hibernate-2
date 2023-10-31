@@ -70,4 +70,9 @@ public class Film {
     @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"))
     private Set <Actor> actorSet;
+
+    @ManyToMany
+    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "category_id"))
+    private Set <Category> categorySet;
 }

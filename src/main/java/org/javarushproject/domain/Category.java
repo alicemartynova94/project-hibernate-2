@@ -1,0 +1,30 @@
+package org.javarushproject.domain;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(schema = "movie", name = "category")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id", nullable = false)
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "last_update", nullable = false)
+    @UpdateTimestamp
+    private LocalDateTime lastUpdate;
+}

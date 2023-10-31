@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(schema = "movie", name = "category")
@@ -27,4 +28,9 @@ public class Category {
     @Column(name = "last_update", nullable = false)
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @ManyToMany
+    @JoinTable(name = "category_id", joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"))
+    private Set<Film> films;
 }

@@ -1,6 +1,10 @@
 package org.javarushproject.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
@@ -8,6 +12,10 @@ import java.util.Set;
 
 @Entity
 @Table(schema = "movie", name = "actor")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

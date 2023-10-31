@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(schema = "movie", name = "actor")
@@ -22,4 +23,9 @@ public class Actor {
     @Column(name = "last_update", nullable = false)
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @ManyToMany
+    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"))
+    private Set<Actor> actorSet;
 }

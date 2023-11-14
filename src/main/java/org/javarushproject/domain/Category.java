@@ -30,7 +30,7 @@ public class Category {
     private LocalDateTime lastUpdate;
 
     @ManyToMany
-    @JoinTable(name = "category_id", joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "film_id"),
+    @JoinTable(name = "category_id", joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"))
     private Set<Film> films;
 }

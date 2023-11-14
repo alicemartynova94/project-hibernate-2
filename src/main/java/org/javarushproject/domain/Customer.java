@@ -21,7 +21,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false)
-    private Long id;
+    private Short id;
 
     @ManyToOne
     @JoinColumn(name = "store_id", nullable = false)

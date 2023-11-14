@@ -52,7 +52,7 @@ public class Film {
     @Column(name = "length")
     private Short length;
 
-    @Column(name = "rental_cost", nullable = false)
+    @Column(name = "replacement_cost", nullable = false)
     private BigDecimal replacementCost;
 
     //@Enumerated(value = EnumType.STRING)

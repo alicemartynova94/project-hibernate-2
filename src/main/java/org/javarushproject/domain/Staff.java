@@ -40,10 +40,10 @@ public class Staff {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "store_id")
+    @JoinColumn(name = "store_id", insertable = false, updatable = false)
     private Store store;
 
-    @Column(name = "active", columnDefinition = "BIT")
+    @Column(name = "active", columnDefinition = "BIT", nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isActive;
 

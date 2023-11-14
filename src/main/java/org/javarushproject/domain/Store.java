@@ -19,7 +19,7 @@ public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "store_id", nullable = false)
-    private Long id;
+    private Byte id;
 
     @OneToOne
     @JoinColumn(name = "manager_staff_id", nullable = false)

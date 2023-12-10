@@ -10,7 +10,6 @@ import java.util.Properties;
 
 public class Main {
     private final SessionFactory sessionFactory;
-
     private final ActorDAO actorDAO;
     private final AddressDAO addressDAO;
     private final CategoryDAO categoryDAO;
@@ -71,9 +70,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         Main main = new Main();
-
         Customer customer = main.createCustomer();
     }
 
@@ -103,6 +100,4 @@ public class Main {
             return customer;
         }
     }
-
-
 }

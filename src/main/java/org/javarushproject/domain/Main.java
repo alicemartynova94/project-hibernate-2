@@ -77,5 +77,32 @@ public class Main {
         Customer customer = main.createCustomer();
     }
 
+    private Customer createCustomer() {
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+            Store store = storeDAO.getItemsWithOffset(0, 1).get(0);
+
+            City city = cityDAO.getByName("ABC");
+            Address address = new Address();
+            session.getTransaction().commit();
+            address.setAddress("Yellow st.");
+            address.setPhone("411-67-09");
+            address.setCity(city);
+            address.setDistrict("Main");
+            addressDAO.save(address);
+
+            Customer customer = new Customer();
+            customer.setAddress(address);
+            customer.setFirstName("Angel");
+            customer.setIsActive(true);
+            customer.setLastName("Mar");
+            customer.setStore(store);
+            customerDAO.save(customer);
+
+            session.getTransaction().commit();
+            return customer;
+        }
+    }
+
 
 }

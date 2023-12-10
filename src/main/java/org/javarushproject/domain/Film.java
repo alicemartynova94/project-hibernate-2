@@ -35,6 +35,7 @@ public class Film {
     private String description;
 
     @Column(name = "release_year", columnDefinition = "year")
+    @Convert(converter = YearConverter.class)
     private Year releaseYear;
 
     @ManyToOne
